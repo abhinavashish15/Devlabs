@@ -1,111 +1,147 @@
 import React from "react";
-import logo from "../image/logo.png";
+import logo from "../image/logo1.png";
 import "../style/Footer.css";
 
+import {
+  FaGithubSquare,
+  FaLinkedinIn,
+  FaFacebookF,
+  FaHome,
+  FaBookmark,
+  FaQuestionCircle,
+  FaRegHeart,
+  FaBriefcase,
+  FaRobot,
+  FaFilm,
+  FaTools,
+  FaLaptopCode,
+  FaUser,
+  FaLock,
+} from "react-icons/fa";
+import {
+  AiOutlineInstagram,
+  AiOutlineTwitter,
+  AiOutlineMail,
+  AiFillStar,
+} from "react-icons/ai";
+import { BsYoutube, BsFillPersonLinesFill, BsCodeSlash } from "react-icons/bs";
+import { Link } from "react-router-dom";
+
 function Footer() {
+  const today = new Date();
+  const year = today.getFullYear();
   return (
-    <footer>
+    <footer className="overflow-x-hidden">
       <div className="Footer">
         <div className="container">
-          <div className="row">
+          <div className="row justify-content-center">
             <div className="col-md-6 col-lg-4 col-12 ft-1">
               <a href="https://www.devlabsstore.tech/">
-                <img width={209} src={logo} alt="devlaps"></img>
+                <img width={209} src={logo} alt="devlabs" />
               </a>
-              <h5>
-                Facing an issue or just <br />
-                enjoying the site ?{" "}
-              </h5>
-              <a href="https://www.devlabsstore.tech/review">
-                <button>Tell us now</button>
-              </a>
+              <p className="footer-content">
+                Welcome to DevLabs, a website where you can search for free
+                tools that are useful for your daily needs. This application is
+                created by the incredible open-source community. On DevLabs, you
+                can discover a collection of free tools that can assist you in
+                various aspects of your life.
+              </p>
+              <h3>Facing an issue or just enjoying the site?</h3>
+              <button>
+                <Link to="/review">Tell us Now</Link>
+              </button>
             </div>
-            <div className="col-md-6 col-lg-3 col-12 ft-2">
-              <h5>Company</h5>
+            <div className="col-md-6 col-lg-2 col-12 ft-2 ft-space">
+              <h3>Company</h3>
               <ul>
                 <li className="nav-item">
-                  <a className="" href="https://www.devlabsstore.tech/">
-                    Home
+                  <a href="https://www.devlabsstore.tech/">
+                    <FaHome className="mr-2" /> Home
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="" href="https://www.devlabsstore.tech/about">
-                    About Us
+                  <a href="https://www.devlabsstore.tech/about">
+                    <FaQuestionCircle className="mr-2" /> About Us
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="" href="https://www.devlabsstore.tech/bookmark">
-                    Bookmark
+                  <a href="https://www.devlabsstore.tech/bookmark">
+                    <FaBookmark className="mr-2" /> Bookmark
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className=""
-                    href="https://www.linkedin.com/in/himanshunarware/"
-                  >
-                    Contact
+                  <a href="https://www.linkedin.com/in/himanshunarware/">
+                    <BsFillPersonLinesFill className="mr-2" /> Contact
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className=""
-                    href="https://www.devlabsstore.tech/open-source"
-                  >
-                    Open Source
+                  <a href="https://www.devlabsstore.tech/rateus">
+                    <AiFillStar className="mr-2" /> Rate Us
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="https://www.devlabsstore.tech/profile">
+                    <FaUser className="mr-2" /> My Profile
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="https://www.devlabsstore.tech/open-source">
+                    <FaRegHeart className="mr-2" /> Open Source
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="https://github.com/HimanshuNarware/Devlabs">
+                    <FaGithubSquare className="mr-2" /> Contribute Here
                   </a>
                 </li>
               </ul>
             </div>
-            <div className="col-md-6 col-lg-3 col-12 ft-2">
-              <h5>Quick Links</h5>
+            <div className="col-md-6 col-lg-2 col-12 ft-2 ft-space">
+              <h3>Quick Links</h3>
               <ul>
                 <li className="nav-item">
-                  <a className="" href="/">
-                    Remote Jobs
+                  <a href="/remote-job">
+                    <FaBriefcase className="mr-2" /> Remote Jobs
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="" href="/">
-                    AI
+                  <a href="/ai">
+                    <FaRobot className="mr-2" /> AI
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="" href="/">
-                    Movie/Series
+                  <a href="/movies&series">
+                    <FaFilm className="mr-2" /> Movie/Series
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="" href="/">
-                    Extension
+                  <a href="/extensions">
+                    <FaTools className="mr-2" /> Extension
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="" href="/">
-                    Ui Design
+                  <a href="/ui-designs">
+                    <FaLaptopCode className="mr-2" /> UI Design
                   </a>
                 </li>
               </ul>
             </div>
-            <div className="col-md-6 col-lg-2 col-12 ft-4">
+            <div className="col-md-6 col-lg-2 col-12 ft-2 ft-last explore">
+              <h3>Explore</h3>
               <ul>
                 <li className="nav-item">
-                  <a className="" href="/">
-                    Fronted Tools
+                  <a href="/front-end-tools">
+                    <FaTools className="mr-2" /> Frontend Tools
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="" href="/">
-                    Ethical Hacking
+                  <a href="/ethical-hacking">
+                    <FaLock className="mr-2" /> Ethical Hacking
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="" href="/">
-                    Coding Platforms
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="" href="/">
-                    Course Platforms
+                  <a href="/coding-platform">
+                    <BsCodeSlash className="mr-2" /> Coding Platforms
                   </a>
                 </li>
               </ul>
@@ -113,33 +149,90 @@ function Footer() {
           </div>
         </div>
       </div>
+
       <div className="Last-footer">
         <div className="container">
-          <div className="row">
+          <div className="row justify-content-center">
             <div className="col-md-6 col-12 ft-1">
-              <p>COPYRIGHT © Devlaps 2024 | MAINTAINED BY HIMANSHU NARWARE</p>
+            <div className="text-center fs-6 my-3">
+                COPYRIGHT &copy; Devlabs {year}  |  <br /> MAINTAINED BY HIMANSHU NARWARE
+                <br />
+              <div className="legal">
+              <a href="/PrivacyPolicy" className="footer-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a> | 
+              <a href="/TermsOfService" className="footer-link" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+              </div>
             </div>
-            <div className="col-md-6 col-12 ft-1">
-              <div className="footer-icons">
+              <div className="text-center mb-2">
                 <a
-                  href="https://www.linkedin.com/in/himanshunarware/"
-                  rel="noreferrer"
+                  href="https://github.com/sponsors/HimanshuNarware"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="https://twitter.com/N_Himanshu_\" rel="noreferrer">
-                  <i class="fa-brands fa-twitter"></i>
-                </a>
-                <a href="mailto:himanshunarware77@gmail.com" rel="noreferrer">
-                  <i class="fa-solid fa-envelope"></i>
-                </a>
-                <a
-                  href="https://github.com/HimanshuNarware/Devlabs"
-                  rel="noreferrer"
-                >
-                  <i class="fa-brands fa-github"></i>
+                  <img
+                    src="https://badgen.net/badge/icon/github?icon=github&label=Sponsor&color=orange"
+                    alt="Sponsor Me on GitHub"
+                    style={{ height: "30px", width: "auto" }}
+                  />
                 </a>
               </div>
+              <div className="outerD gap-4 md:gap-2">
+                <span className="icons">
+                  <a href="/" target="_blank" rel="noopener noreferrer">
+                    <AiOutlineInstagram
+                      color="white"
+                      fontSize={25}
+                      className="ico"
+                    />
+                  </a>
+                </span>
+                <span className="icons">
+                  <a href="/" target="_blank" rel="noopener noreferrer">
+                    <AiOutlineTwitter
+                      color="white"
+                      fontSize={25}
+                      className="ico"
+                    />
+                  </a>
+                </span>
+                <span className="icons">
+                  <a href="/" target="_blank" rel="noopener noreferrer">
+                    <BsYoutube color="white" fontSize={25} className="ico" />
+                  </a>
+                </span>
+                <span className="icons">
+                  <a href="/" target="_blank" rel="noopener noreferrer">
+                    <FaLinkedinIn color="white" fontSize={25} className="ico" />
+                  </a>
+                </span>
+                <span className="icons">
+                  <a href="/" target="_blank" rel="noopener noreferrer">
+                    <FaFacebookF color="white" fontSize={25} className="ico" />
+                  </a>
+                </span>
+                <span className="icons">
+                  <a href="/" target="_blank" rel="noopener noreferrer">
+                    <FaGithubSquare
+                      color="white"
+                      fontSize={25}
+                      className="ico"
+                    />
+                  </a>
+                </span>
+                <span className="icons">
+                  <a
+                    href="mailto:example@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <AiOutlineMail
+                      color="white"
+                      fontSize={25}
+                      className="ico"
+                    />
+                  </a>
+                </span>
+              </div>
+              <hr />
             </div>
           </div>
         </div>

@@ -1,31 +1,100 @@
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import React, { useState } from "react";
-import About from "./Component/About";
-import Footer from "./Component/Footer";
-import Home from "./Component/Home";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Toaster } from "react-hot-toast";
+import ScrollToTop from "./Component/ScrollToTop";
 import Navbar from "./Component/Navbar/Navbar";
-import BookMark from "./Component/BookMark";
-import NotFound from "./Component/NotFound";
 import BackToTopButton from "./Component/BackToTopButton";
-import OpenSource from "./Component/OpenSource";
-import Review from "./Component/Review";
+import Footer from "./Component/Footer";
+import TrailingCursor from "./Component/TrailingCursor/TrailingCursor";
+import ChatAssistant from "./ChatAssistant/ChatAssistant";
+import TermsOfService from './Component/TermsOfService';
+import PrivacyPolicy from './Component/PrivacyPolicy';
+import Darkmode from "darkmode-js"; // Import the Darkmode library
+//import Testimonials from "../src/pages/Testimonials";
+// Lazy load components
+const About = lazy(() => import("./Component/About"));
+const Rateus = lazy(() => import("./Component/Rateus"));
+const Home = lazy(() => import("./Component/Home"));
+const NotFound = lazy(() => import("./Component/NotFound"));
+const OpenSource = lazy(() => import("./Component/OpenSource"));
+const Review = lazy(() => import("./Component/Review"));
+const BookMark = lazy(() => import("./Component/BookMark"));
+const Contact = lazy(() => import("./Component/Contact"));
+const Signup = lazy(() => import("./Component/Signup"));
+const Profile = lazy(() => import("./Component/Profile"));
+const RemoteJobs = lazy(() => import("./pages/RemoteJobs"));
+const AI = lazy(() => import("./pages/AI"));
+const UI = lazy(() => import("./pages/UI"));
+const Movie = lazy(() => import("./pages/Movie"));
+const Extension = lazy(() => import("./pages/Extension"));
+const EthicalHacking = lazy(() => import("./pages/EthicalHacking"));
+const FrontendTools = lazy(() => import("./pages/FrontendTools"));
+const BackendTools = lazy(() => import("./pages/BackendTools"));
+const Faq = lazy(() => import("./Component/Faq"));
+const CodingPlatform = lazy(() => import("./pages/CodingPlatform"));
+const CoursesPlatform = lazy(() => import("./pages/CoursesPlatform"));
+const Collaboration = lazy(() => import("./pages/Collaboration"));
+const Productivity = lazy(() => import("./pages/Productivity"));
+const Extensions = lazy(() => import("./pages/Extensions"));
+const Movies = lazy(() => import("./pages/Movies"));
+const Ui = lazy(() => import("./pages/UserInterface"));
+const RemoteJob = lazy(() => import("./pages/RemoteJob"));
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    AOS.init();
+    const darkmode = new Darkmode();
+    darkmode.showWidget();
+  }, []);
+
   return (
     <>
+      <ScrollToTop />
+      <TrailingCursor />
       <Navbar setSearchQuery={setSearchQuery} />
-      <Routes>
-        <Route path="/" element={<Home searchQuery={searchQuery} />}></Route>
-        <Route path="/bookmark" element={<BookMark />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/open-source" element={<OpenSource />}></Route>
-        <Route path="/review" element={<Review />}></Route>
-        <Route path="*" element={<NotFound />} /> {/* 404 route */}
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home searchQuery={searchQuery} />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/bookmark" element={<BookMark />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/open-source" element={<OpenSource />} />
+          <Route path="/review" element={<Review />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/rateus" element={<Rateus />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/remote-jobs" element={<RemoteJobs />} />
+          <Route path="/ai" element={<AI />} />
+          <Route path="/movies-series" element={<Movie />} />
+          <Route path="/extension" element={<Extension />} />
+          <Route path="/ui-design" element={<UI />} />
+          <Route path="/front-end-tools" element={<FrontendTools />} />
+          <Route path="/back-end-tools" element={<BackendTools />} />
+          <Route path="/ethical-hacking" element={<EthicalHacking />} />
+          <Route path="/coding-platform" element={<CodingPlatform />} />
+          <Route path="/courses-platform" element={<CoursesPlatform />} />
+          <Route path="/productivity-tools" element={<Productivity />} />
+          <Route path="/collaboration-tools" element={<Collaboration />} />
+          <Route path="/extensions" element={<Extensions />} />
+          <Route path="/movies&series" element={<Movies />} />
+          <Route path="/ui-designs" element={<Ui />} />
+          <Route path="/remote-job" element={<RemoteJob />} />
+          <Route path="/TermsOfService" element={<TermsOfService />} />
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+          {/* Define other routes as needed */}
+          {/* <Route path="*" element={<NotFound />} /> 404 route */}
+        </Routes>
+      </Suspense>
       <BackToTopButton />
       <Footer />
+      <ChatAssistant />
+      <Toaster />
     </>
   );
 }

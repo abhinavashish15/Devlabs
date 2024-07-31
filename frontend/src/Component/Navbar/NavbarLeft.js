@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
-import { IoReorderThree, IoClose } from "react-icons/io5";
 import "../../style/Navbar.css"
-import logo from "../../image/logo.png";
-
-function NavbarLeft(props) {
+import logo from "../../image/logo1.png";
+function NavbarLeft(props, showSideNav) {
   useEffect(() => {
-    // Added event listener to handle clicks outside the navbar
     const handleDocumentClick = (e) => {
       if (!e.target.closest('.navbar-left')) {
         props.setShowSideNav(false);
@@ -30,7 +27,7 @@ function NavbarLeft(props) {
   }
 
   return (
-    <span className="navbar-left">
+    <span className="navbar-left" style={{marginTop : showSideNav ? "0px":"0px"}}>
       <a
         onClick={handleClick}
         className="navbar-brand sdbar-logo"

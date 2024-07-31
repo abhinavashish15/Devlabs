@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-import "../../style/Navbar.css"
+import "../../style/Navbar.css";
 import Sidebar from "../Sidebar/Sidebar";
 import NavbarLeft from "./NavbarLeft";
 import NavbarCenter from "./NavbarCenter";
-import NavbarRight from "./NavbarRight";
-
+import Progress from "./Progress";
 function Navbar(props) {
   const [showSideNav, setShowSideNav] = useState(false);
-
+  
   return (
-    <header >
-      <div className="navbar">
-        <NavbarLeft showSideNav={showSideNav} setShowSideNav={setShowSideNav}/>
-        <NavbarCenter />
-        <NavbarRight setSearchQuery={props.setSearchQuery} /> {/* Pass setSearchQuery directly */}
+    <header>
+      <div className="navbar w-100">
+        <Progress />
+        <NavbarLeft showSideNav={showSideNav} setShowSideNav={setShowSideNav} />
+        <NavbarCenter showSideNav={showSideNav} />
+        
+        {/* Pass setSearchQuery directly 
+        <NavbarRight setSearchQuery={props.setSearchQuery} />
+        */}
       </div>
-
-      
-        <Sidebar showSideNav={showSideNav} />
-      
+      <Sidebar showSideNav={showSideNav} />
     </header>
   );
 }
